@@ -11,9 +11,9 @@ const texto = document.getElementById('trocar');
 
 colorPicker.addEventListener('input', function() {
   const color = colorPicker.value;
-  text.style.color = color;
   texto.style.color = color;
 })
+
 
 // 3
 
@@ -57,57 +57,57 @@ function aplicarFiltro(filter) {
 
 function calcular() {
 
-    const num1 = parseInt(document.getElementById("numero1").value)
-    const num2 = parseInt(document.getElementById("numero2").value)
-    const operador = document.getElementById("operador").value
+    const num1 = parseInt(document.getElementById("numero1").value);
+    const num2 = parseInt(document.getElementById("numero2").value);
+    const operador = document.getElementById("operador").value;
     
-    let result;
+    let resultado;
     switch (operador) {
       case "+":
-        result = num1 + num2
+        result = num1 + num2;
         break
       case "-":
-        result = num1 - num2
+        result = num1 - num2;
         break
       case "*":
-        result = num1 * num2
+        result = num1 * num2;
         break
       case "/":
-        result = num1 / num2
+        result = num1 / num2;
         break
       default:
         result = ""
     }
 
-    document.getElementById("resultado").textContent = result
+    document.getElementById("resultado").textContent = resultado;
   }
   
   function limpar() {
 
-    document.getElementById("numero1").value = ""
-    document.getElementById("numero2").value = ""
-    document.getElementById("operador").selectedIndex = 0
-    document.getElementById("resultado").textContent = ""
+    document.getElementById("numero1").value = "";
+    document.getElementById("numero2").value = "";
+    document.getElementById("operador").selectedIndex = 0;
+    document.getElementById("resultado").textContent = "";
   }
 
 // 6
 
-let display = document.getElementById("display")
+let display = document.getElementById("display");
 
 function add2(value) {
-  display.value += value
+  display.value += value;
 }
 
 function limpar2() {
-  display.value = ""
+  display.value = "";
 }
 
 function deletar2() {
-  display.value = display.value.slice(0, -1)
+  display.value = display.value.slice(0, -1);
 }
 
 function calcular2() {
-  let result = eval(display.value)
-  display.value = result
+  let result = eval(display.value);
+  display.value = result;
 }
 
