@@ -1,14 +1,10 @@
-// Todas as questões foram testadas no console do naveador.
+// Todas as questões foram testadas no console do navegador.
 // Questão 01
-let notaT1 = 5.2
-let notaT2 = 4.8
-let notaP1 = 9.1
-
-
+var notaT1 = 5.2;
+var notaT2 = 4.8;
+var notaP1 = 9.1;
 if (notaT1 >= 0 && notaT1 <= 10 && notaT2 >= 0 && notaT2 <= 10 && notaP1 >= 0 && notaP1 <= 10) {
- 
   let media = (notaT1 + notaT2 + notaP1) / 3;
-
   if (media < 5) {
     console.log("Reprovado! Sua média é " + media.toFixed(2));
   } else if (media >= 5 && media <= 7) {
@@ -17,31 +13,29 @@ if (notaT1 >= 0 && notaT1 <= 10 && notaT2 >= 0 && notaT2 <= 10 && notaP1 >= 0 &&
     console.log("Parabéns! Sua média é " + media.toFixed(2));
   }
 } else {
-  console.log("Uma ou mais notas são inválidas.");
+  console.log("Uma ou mais notas são inválidas, deve estar entre 0 e 10.");
 }
 
 // Questão 02
 
-let soma = 0;
-let cont = 0;
-let numero = 1;
-
+var soma = 0;
+var cont = 0;
+var numero = 1;
 while (cont < 50) {
   if (numero % 2 == 0) {
     soma += numero;
   }
   cont = cont + 1;
-  numero++;
+  numero =  numero + 1;
 }
-
 console.log("A soma dos primeiros 50 números pares é: " + soma);
 
 // Questão 03
   var segundos = 0;
   var minutos = 0;
   var horas = 0;
-  
-  let intervalo = setInterval(function() {
+
+  function inter() {
     console.log(horas + ":" + minutos + ":" + segundos);
     segundos++;
     if (segundos >= 60) {
@@ -55,11 +49,16 @@ console.log("A soma dos primeiros 50 números pares é: " + soma);
         }
       }
     }
-  }, 1000);
-  
-  setTimeout(function() {
+  }
+
+  let intervalo = setInterval(inter, 1000);
+
+  function timeOut() {
     clearInterval(intervalo);
-  }, 60 * 1000);
+  }
+
+  setTimeout(timeOut, 60 * 1000);
+
 
 // Questão 04
 
@@ -83,9 +82,9 @@ do {
     case "3":
       const dias = Number(prompt("Quantos dias gostaria de estender a hospedagem?"));
       if (dias > 0 && !isNaN(dias)) {
-        alert(`A hospedagem foi estendida em ${dias} dias.`);
+        alert(`Parabéns, hospedagem foi estendida em ${dias} dias.`);
       } else {
-        alert("Número inválido.");
+        alert("Número inválido, deve ser um número maior que 0.");
       }
       break;
       
@@ -100,8 +99,8 @@ do {
 
 // Questão 5
 
-let quantidadeCarbono1
-let quantidadeCarbono2
+var quantidadeCarbono1;
+var quantidadeCarbono2;
 
 quantidadeCarbono1 = Number(prompt("Digite a quantidade de carbono da primeira substância:"));
 quantidadeCarbono2 = Number(prompt("Digite a quantidade de carbono da segunda substância:"));
@@ -157,7 +156,6 @@ percentualAumentoTotal += percentualAumento;
 console.log(`Salário em ${ano}: R$ ${salarioAtual.toFixed(2)}`);
 console.log(`Percentual de aumento em ${ano}: ${(percentualAumento * 100).toFixed(2)}%`);
 }
-
 console.log(`O percentual de aumento total desde 2013 é: ${(percentualAumentoTotal * 100).toFixed(2)}%`);
 
 
@@ -179,42 +177,37 @@ for (let i = 3; i <= 20; i++) {
 
 // Questão 10
 
-// Função para obter o tipo de mercadoria
-function obterTipoMercadoria() {
+function obterMercadoria() {
     return prompt("Digite o tipo de mercadoria:");
     }
-    
-    // Função para obter o valor de custo
-    function obterValorCusto() {
-    return parseFloat(prompt("Digite o valor de custo da mercadoria:"));
+
+    function obterValor() {
+    return parseFloat(prompt("Digite o valor da mercadoria:"));
     }
-    
-    // Função para calcular o valor de compra com acréscimo de 75%
-    function calcularValorCompra(valorCusto) {
-    return valorCusto * 1.75;
-    }
-    
-    // Função para calcular o valor com desconto
+
     function calcularValorComDesconto(valor, desconto) {
-    return valor * (1 - desconto/100);
+      return valor * (1 - desconto/100);
+      }
+
+    function calcularValorCompra(valor) {
+    return valor * 1.75;
     }
-    
-    // Função principal que chama as outras funções e realiza a consulta de preço
+ 
     function consultarPreco() {
-    const tipoMercadoria = obterTipoMercadoria();
-    const valorCusto = obterValorCusto();
+    const tipoMercadoria = obterMercadoria();
+    const valor = obterValor();
     
-    const valorCompra = calcularValorCompra(valorCusto);
-    console.log(`O valor de compra da mercadoria é R$ ${valorCompra.toFixed(2)}.`);
+    const valorCompra = calcularValorCompra(valor);
+    console.log(`O valor de compra da mercadoria com acréscimo de 75% é: R$ ${valorCompra.toFixed(2)}.`);
     
-    const desconto = parseFloat(prompt("Digite o desconto em % (digite 0 se não houver desconto):"));
+    const desconto = parseFloat(prompt("Digite o desconto em % (10, para 10 %, por exemplo) :"));
     if (desconto > 0) {
-    const valorComDesconto = calcularValorComDesconto(valorCompra, desconto);
-    console.log(`O valor com desconto é R$ ${valorComDesconto.toFixed(2)}.`);
+    const valorComDesconto = calcularValorComDesconto(valor, desconto);
+    console.log(`O valor da mercadoria com desconto é R$ ${valorComDesconto.toFixed(2)}.`);
+    console.log(`O desconto foi de: R$  ${(valor - valorComDesconto).toFixed(2)}.`)
     } else {
     console.log("Não há desconto aplicado.");
     }
     }
-    
-    // Chamada da função principal
+
     consultarPreco();
