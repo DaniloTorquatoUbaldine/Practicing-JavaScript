@@ -74,7 +74,7 @@ do {
       
     case "2":
       const confirmacao = confirm("Tem certeza que deseja fazer o checkout?");
-      if (confirmacao == True) {
+      if (confirmacao == true) {
         alert("Obrigado pela hospedagem, volte sempre!");
       }
       break;
